@@ -1,0 +1,3 @@
+# Ignore build output
+Jellyfin.Plugin.MoreLikeThis/bin/
+Jellyfin.Plugin.MoreLikeThis/obj/

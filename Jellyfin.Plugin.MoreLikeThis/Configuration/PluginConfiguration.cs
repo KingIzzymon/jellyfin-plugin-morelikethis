@@ -1,57 +1,28 @@
-using MediaBrowser.Model.Plugins;
-
-namespace Jellyfin.Plugin.MoreLikeThis.Configuration;
-
-/// <summary>
-/// The configuration options.
-/// </summary>
-public enum SomeOptions
+namespace Jellyfin.Plugin.MoreLikeThis.Configuration
 {
-    /// <summary>
-    /// Option one.
-    /// </summary>
-    OneOption,
+    using MediaBrowser.Model.Plugins;
 
     /// <summary>
-    /// Second option.
+    /// Plugin configuration.
     /// </summary>
-    AnotherOption
-}
-
-/// <summary>
-/// Plugin configuration.
-/// </summary>
-public class PluginConfiguration : BasePluginConfiguration
-{
-    /// <summary>
-    /// Initializes a new instance of the <see cref="PluginConfiguration"/> class.
-    /// </summary>
-    public PluginConfiguration()
+    public class PluginConfiguration : BasePluginConfiguration
     {
-        // set default options here
-        Options = SomeOptions.AnotherOption;
-        TrueFalseSetting = true;
-        AnInteger = 2;
-        AString = "string";
+        /// <summary>
+        /// Gets or sets how many similar items to show in the row.
+        /// </summary>
+        public int MaxResults { get; set; } = 16;
+
+        /// <summary>
+        /// Gets or sets the minutes between full similarity index rebuilds (scheduled task).
+        /// A full rebuild re-scores every item against every other item in the
+        /// same library type, so keep this infrequent on large libraries.
+        /// </summary>
+        public int FullRebuildIntervalHours { get; set; } = 24;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether to also weigh cast/crew overlap,
+        /// not just genres/tags/studio. More accurate, but more CPU per comparison.
+        /// </summary>
+        public bool UseCastCrewSignal { get; set; } = true;
     }
-
-    /// <summary>
-    /// Gets or sets a value indicating whether some true or false setting is enabled..
-    /// </summary>
-    public bool TrueFalseSetting { get; set; }
-
-    /// <summary>
-    /// Gets or sets an integer setting.
-    /// </summary>
-    public int AnInteger { get; set; }
-
-    /// <summary>
-    /// Gets or sets a string setting.
-    /// </summary>
-    public string AString { get; set; }
-
-    /// <summary>
-    /// Gets or sets an enum option.
-    /// </summary>
-    public SomeOptions Options { get; set; }
 }
