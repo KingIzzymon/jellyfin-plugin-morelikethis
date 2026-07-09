@@ -1,0 +1,17 @@
+---
+name: "MoreLikeThis"
+guid: "acf9e264-24da-4a83-a122-e2e8185e0237"
+version: "0.0.0.1"
+targetAbi: "10.11.0.0"
+framework: "net9.0"
+overview: "A plugin to customize the default 'More like this' list"
+description: >
+  A plugin to customize the default 'More like this' list located at 
+  the bottom of Movies and Shows using a score system. This will not 
+  require any javascript injection or client side modification.
+category: "General"
+owner: "jellyfin"
+artifacts:
+- "Jellyfin.Plugin.MoreLikeThis.dll"
+changelog: >
+  changelog
